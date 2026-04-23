@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Racha Extrema — Wingfoil Market Argentina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --text-hero:clamp(3.5rem,1rem + 8vw,9rem);
+  --space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;
+  --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+  --space-12:3rem;--space-16:4rem;--space-20:5rem;
+  --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;
+  --radius-xl:1.25rem;--radius-full:9999px;
+  --transition:200ms cubic-bezier(0.16,1,0.3,1);
+}
+[data-theme="dark"] {
+  --bg:#0a0d10;--surface:#111518;--surface-2:#181d22;--surface-3:#1e252c;
+  --border:rgba(255,255,255,0.08);--text:#e8edf2;
+  --text-muted:#7a8899;--text-faint:#3d4d5c;
+  --accent:#00c8e0;--accent-2:#f0a500;
+  --shadow-md:0 4px 20px rgba(0,0,0,0.45);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.6);
+  --input-bg:#0f1419;
+}
+[data-theme="light"] {
+  --bg:#f0f4f7;--surface:#ffffff;--surface-2:#f7fafc;--surface-3:#edf2f7;
+  --border:rgba(0,0,0,0.08);--text:#0d1a26;
+  --text-muted:#4a6070;--text-faint:#a0b4c0;
+  --accent:#0098b0;--accent-2:#d08800;
+  --shadow-md:0 4px 20px rgba(0,0,0,0.1);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.15);
+  --input-bg:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:72px}
+body{font-family:var(--font-body);font-size:var(--text-base);color:var(--text);background:var(--bg);min-height:100dvh;line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+a,button,[role="button"]{transition:color var(--transition),background var(--transition),border-color var(--transition),box-shadow var(--transition),opacity var(--transition),transform var(--transition)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,13,16,0.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:var(--space-4) var(--space-6);display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+[data-theme="light"] nav{background:rgba(240,244,247,0.9)}
+.nav-logo{display:flex;align-items:center;gap:var(--space-3)}
+.nav-logo svg{color:var(--accent)}
+.nav-logo-text{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:0.08em;line-height:1}
+.nav-logo-text span{color:var(--accent)}
+.nav-links{display:flex;gap:var(--space-6);list-style:none}
+.nav-links a{font-size:var(--text-sm);color:var(--text-muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:var(--space-3)}
+.theme-toggle{width:36px;height:36px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted)}
+.theme-toggle:hover{background:var(--surface-3);color:var(--text)}
+.btn-primary{background:var(--accent);color:#000;font-size:var(--text-sm);font-weight:700;padding:var(--space-2) var(--space-5);border-radius:var(--radius-full)}
+.btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:flex-end;padding:var(--space-20) var(--space-8) var(--space-16)}
+.hero-bg{position:absolute;inset:0;background-image:url('https://pplx-res.cloudinary.com/image/upload/pplx_search_images/38559eac9cb6054ec8fa7e54fe63685531d066f8.jpg');background-size:cover;background-position:center 30%;filter:brightness(0.38)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,transparent 55%)}
+.hero-content{position:relative;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(0,200,224,0.12);border:1px solid rgba(0,200,224,0.3);color:var(--accent);font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:var(--space-1) var(--space-4);border-radius:var(--radius-full);margin-bottom:var(--space-5)}
+.hero h1{font-family:var(--font-display);font-size:var(--text-hero);line-height:0.88;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:var(--space-4)}
+.hero h1 .sub-title{display:block;font-size:clamp(1.4rem,0.5rem+3.5vw,3.8rem);color:var(--accent);letter-spacing:0.06em}
+.hero-sub{font-size:var(--text-lg);color:var(--text-muted);max-width:52ch;margin-bottom:var(--space-8)}
+.hero-ctas{display:flex;gap:var(--space-4);flex-wrap:wrap}
+.btn-outline{font-size:var(--text-sm);font-weight:600;padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{background:var(--surface-2);border-color:var(--text-faint)}
+.btn-hero{font-size:var(--text-sm);font-weight:700;padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);background:var(--accent);color:#000;display:inline-flex;align-items:center;gap:var(--space-2)}
+.btn-hero:hover{opacity:0.88;transform:translateY(-2px)}
+
+/* ── STATS ── */
+.stats-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:var(--space-6) var(--space-8);display:flex;justify-content:center;gap:clamp(var(--space-8),6vw,var(--space-20));flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:var(--text-xl);color:var(--accent);letter-spacing:0.04em;line-height:1}
+.stat-label{font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:var(--space-1)}
+
+/* ── SECTION HEADER + FILTERS ── */
+.section-header{max-width:1200px;margin:0 auto;padding:var(--space-12) var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-5)}
+.section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)}
+.section-title{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:0.04em;text-transform:uppercase;line-height:1}
+.section-title span{color:var(--accent)}
+
+/* Filter bar */
+.filter-bar{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:var(--space-4) var(--space-5)}
+.filter-group{display:flex;align-items:center;gap:var(--space-2);flex:1;min-width:160px}
+.filter-group label{font-size:var(--text-xs);font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap}
+.filter-select,.filter-input{background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);font-size:var(--text-sm);font-family:var(--font-body);outline:none;flex:1;min-width:0}
+.filter-select:focus,.filter-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,224,0.12)}
+.filter-divider{width:1px;height:28px;background:var(--border);flex-shrink:0}
+.filter-cats{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.filter-btn{font-size:var(--text-xs);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);border:1px solid var(--border);color:var(--text-muted)}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn-reset{font-size:var(--text-xs);font-weight:600;color:var(--text-faint);padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);border:1px solid var(--border)}
+.btn-reset:hover{color:var(--text-muted);border-color:var(--text-faint)}
+
+/* ── GRID ── */
+.products-grid{max-width:1400px;margin:0 auto;padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+
+
+.no-results{grid-column:1/-1;text-align:center;padding:var(--space-16);color:var(--text-muted);font-size:var(--text-lg);font-family:var(--font-display);letter-spacing:0.05em;text-transform:uppercase}
+
+/* ── CARD ── */
+
+
+.card-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--surface-2)}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}
+.card:hover .card-img-wrap img{transform:scale(1.06)}
+.card-badge{position:absolute;top:var(--space-3);left:var(--space-3);font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);backdrop-filter:blur(8px)}
+.badge-new{background:rgba(0,200,224,0.85);color:#000}
+.badge-used{background:rgba(240,165,0,0.85);color:#000}
+.badge-hot{background:rgba(220,50,50,0.85);color:#fff}
+.card-source{position:absolute;top:var(--space-3);right:var(--space-3);font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:rgba(10,13,16,0.75);backdrop-filter:blur(8px);border:1px solid var(--border);color:var(--text-muted)}
+.card-body{padding:var(--space-5);flex:1;display:flex;flex-direction:column;gap:var(--space-2)}
+.card-brand{font-size:var(--text-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)}
+.card-name{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.1;letter-spacing:0.03em}
+.card-desc{font-size:var(--text-sm);color:var(--text-muted);flex:1}
+.card-tags{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-1)}
+.tag{font-size:var(--text-xs);color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);padding:2px var(--space-3);border-radius:var(--radius-full)}
+.card-footer{padding:var(--space-4) var(--space-5);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap}
+.card-price{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:0.02em;line-height:1}
+.card-price .currency{font-size:var(--text-sm);color:var(--text-muted);font-family:var(--font-body);font-weight:600}
+
+/* Featured */
+.card-featured{grid-column:1/-1;flex-direction:row;min-height:280px}
+.card-featured .card-img-wrap{width:min(45%,420px);flex-shrink:0;aspect-ratio:unset}
+.card-featured .card-body{justify-content:center}
+.card-featured .card-name{font-size:var(--text-2xl)}
+
+/* ── FORMULARIO ── */
+.form-section{background:var(--surface);border-top:1px solid var(--border);padding:var(--space-16) var(--space-6)}
+.form-inner{max-width:680px;margin:0 auto}
+.form-header{margin-bottom:var(--space-10);text-align:center}
+.form-header h2{font-family:var(--font-display);font-size:var(--text-2xl);letter-spacing:0.05em;text-transform:uppercase;line-height:1;margin-bottom:var(--space-3)}
+.form-header h2 em{color:var(--accent);font-style:normal}
+.form-header p{color:var(--text-muted);font-size:var(--text-sm);max-width:44ch;margin:0 auto}
+
+.form-grid{display:flex;flex-direction:column;gap:var(--space-6)}
+.field{display:flex;flex-direction:column;gap:var(--space-2)}
+.field label{font-size:var(--text-sm);font-weight:600;color:var(--text);letter-spacing:0.02em}
+.field label .req{color:var(--accent);margin-left:2px}
+.field .hint{font-size:var(--text-xs);color:var(--text-muted)}
+.field input[type="text"],.field input[type="number"],.field textarea,.field select{width:100%;background:var(--input-bg);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:var(--text-base);font-family:var(--font-body);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,224,0.12)}
+.field textarea{min-height:110px;resize:vertical;line-height:1.6}
+
+/* Precio row */
+.price-row{display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start}
+.currency-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;height:48px;flex-shrink:0}
+.currency-toggle input[type="radio"]{display:none}
+.currency-toggle label{display:flex;align-items:center;justify-content:center;padding:0 var(--space-4);font-size:var(--text-sm);font-weight:700;letter-spacing:0.06em;cursor:pointer;background:var(--input-bg);color:var(--text-muted);transition:background var(--transition),color var(--transition);border-right:1px solid var(--border)}
+.currency-toggle label:last-child{border-right:none}
+.currency-toggle input[type="radio"]:checked + label{background:var(--accent);color:#000}
+
+/* Upload zone */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-lg);padding:var(--space-10) var(--space-6);text-align:center;cursor:pointer;transition:border-color var(--transition),background var(--transition);position:relative}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--accent);background:rgba(0,200,224,0.04)}
+.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-icon{width:44px;height:44px;margin:0 auto var(--space-3);color:var(--text-faint)}
+.upload-zone p{font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2)}
+.upload-zone .upload-cta{color:var(--accent);font-weight:600}
+.upload-zone small{font-size:var(--text-xs);color:var(--text-faint)}
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:var(--space-2);margin-top:var(--space-4)}
+.preview-thumb{position:relative;aspect-ratio:1;border-radius:var(--radius-md);overflow:hidden;background:var(--surface-2);border:1px solid var(--border)}
+.preview-thumb img{width:100%;height:100%;object-fit:cover}
+.preview-thumb .remove-thumb{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:var(--radius-full);background:rgba(10,13,16,0.8);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;cursor:pointer}
+
+/* Submit */
+.form-submit{display:flex;justify-content:center;margin-top:var(--space-4)}
+.btn-submit{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:0.1em;text-transform:uppercase;padding:var(--space-4) var(--space-12);border-radius:var(--radius-full);background:var(--accent);color:#000;font-weight:700;display:inline-flex;align-items:center;gap:var(--space-3)}
+.btn-submit:hover{opacity:0.88;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,224,0.25)}
+.btn-submit:disabled{opacity:0.5;transform:none;cursor:not-allowed}
+
+/* Success */
+.form-success{display:none;text-align:center;padding:var(--space-10) 0}
+.form-success .success-icon{width:64px;height:64px;margin:0 auto var(--space-5);color:var(--accent)}
+.form-success h3{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:var(--space-3)}
+.form-success p{color:var(--text-muted);font-size:var(--text-sm)}
+
+/* ── FOOTER ── */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:var(--space-8);text-align:center;font-size:var(--text-xs);color:var(--text-faint);line-height:2}
+footer a{color:var(--accent)}
+footer a:hover{opacity:0.75}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero{padding:var(--space-20) var(--space-5) var(--space-12)}
+  .products-grid,.section-header{padding-left:var(--space-4);padding-right:var(--space-4)}
+  .card-featured{flex-direction:column}
+  .card-featured .card-img-wrap{width:100%;aspect-ratio:16/9}
+  .filter-bar{flex-direction:column;align-items:stretch}
+  .filter-divider{display:none}
+  .price-row{grid-template-columns:1fr;gap:var(--space-2)}
+}
+
+
+/* ── Card compacta ───────────────────────────── */
+
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 22px rgba(0,200,224,.25)}
+.card-img-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#0a191f;
+}
+.card-img-wrap img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+}
+.card-badge{
+  position:absolute;top:8px;left:8px;
+  font-size:.65rem;font-weight:800;
+  padding:3px 8px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.badge-new{background:#00c8e0;color:#000}
+.badge-used{background:#ff7c3a;color:#fff}
+.card-source{
+  position:absolute;top:8px;right:8px;
+  background:rgba(0,0,0,.65);color:#fff;
+  font-size:.62rem;font-weight:700;
+  padding:3px 7px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.card-body{padding:10px 12px 4px;flex:1}
+.card-brand{
+  font-size:.62rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em;
+  color:#00c8e0;display:block;margin-bottom:3px;
+}
+.card-name{
+  font-size:.8rem;font-weight:700;
+  line-height:1.3;margin:0 0 4px;
+  color:#e8f4f7;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.card-desc{
+  font-size:.72rem;color:#8ab4be;
+  line-height:1.4;margin:0 0 6px;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+.tag{
+  font-size:.6rem;background:rgba(0,200,224,.12);
+  color:#00c8e0;padding:2px 7px;border-radius:20px;
+}
+.card-footer{
+  padding:8px 12px 12px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:8px;
+  border-top:1px solid rgba(0,200,224,.1);
+}
+.card-price{
+  font-size:.78rem;font-weight:800;
+  color:#fff;white-space:nowrap;
+}
+
+
+
+/* ════════════════════════════════════════
+   GRID + CARD COMPACTOS — versión final
+   ════════════════════════════════════════ */
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(3,1fr)!important}}
+@media(max-width:700px) {.products-grid{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:400px) {.products-grid{grid-template-columns:1fr!important}}
+
+.card{
+  display:flex!important;
+  flex-direction:column!important;
+  border-radius:12px;
+  overflow:hidden;
+  background:#0d1f25;
+  box-shadow:0 2px 12px rgba(0,0,0,.35);
+  transition:transform .2s,box-shadow .2s;
+  font-size:.82rem;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 22px rgba(0,200,224,.25)}
+.card-img-wrap{
+  position:relative;width:100%;
+  aspect-ratio:4/3;overflow:hidden;background:#0a191f;
+}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.card-badge{
+  position:absolute;top:8px;left:8px;
+  font-size:.65rem;font-weight:800;padding:3px 8px;
+  border-radius:20px;text-transform:uppercase;letter-spacing:.06em;
+}
+.badge-new{background:#00c8e0;color:#000}
+.badge-used{background:#ff7c3a;color:#fff}
+.card-source{
+  position:absolute;top:8px;right:8px;
+  background:rgba(0,0,0,.65);color:#fff;
+  font-size:.62rem;font-weight:700;
+  padding:3px 7px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.card-body{padding:10px 12px 4px;flex:1}
+.card-brand{
+  font-size:.62rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em;
+  color:#00c8e0;display:block;margin-bottom:3px;
+}
+.card-name{
+  font-size:.8rem;font-weight:700;
+  line-height:1.3;margin:0 0 4px;color:#e8f4f7;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.card-desc{
+  font-size:.72rem;color:#8ab4be;
+  line-height:1.4;margin:0 0 6px;
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+.tag{font-size:.6rem;background:rgba(0,200,224,.12);color:#00c8e0;padding:2px 7px;border-radius:20px}
+.card-footer{
+  padding:8px 12px 12px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:8px;
+  border-top:1px solid rgba(0,200,224,.1);
+}
+.card-price{font-size:.78rem;font-weight:800;color:#fff;white-space:nowrap}
+.btn-contact{
+  font-size:.7rem!important;font-weight:800!important;
+  padding:7px 13px!important;border-radius:999px!important;
+  background:#00c8e0!important;color:#000!important;
+  text-decoration:none!important;white-space:nowrap;
+  border:2px solid #00c8e0!important;
+  display:inline-flex!important;align-items:center;justify-content:center;
+  transition:all .18s ease;
+}
+.btn-contact:hover{background:#fff!important;border-color:#fff!important}
+
+/* ════ GRID FINAL OVERRIDE ════ */
+.products-grid{
+  max-width:1400px!important;
+  margin:0 auto!important;
+  padding:24px!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+@media(max-width:1100px){.products-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:700px) {.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:420px) {.products-grid{grid-template-columns:1fr!important}}
+
+.card{display:flex!important;flex-direction:column!important;border-radius:12px!important;overflow:hidden!important;background:#0d1f25!important;box-shadow:0 2px 12px rgba(0,0,0,.4)!important;min-width:0!important;width:auto!important;max-width:none!important}
+.card-img-wrap{position:relative!important;width:100%!important;aspect-ratio:4/3!important;overflow:hidden!important;background:#0a1a20!important;flex-shrink:0!important}
+.card-img-wrap img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.card-badge{position:absolute;top:8px;left:8px;font-size:.65rem;font-weight:800;padding:3px 8px;border-radius:20px;text-transform:uppercase}
+.badge-new{background:#00c8e0!important;color:#000!important}
+.badge-used{background:#ff7c3a!important;color:#fff!important}
+.card-source{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:20px;text-transform:uppercase}
+.card-body{padding:10px 12px 4px;flex:1;min-width:0}
+.card-brand{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#00c8e0;display:block;margin-bottom:3px}
+.card-name{font-size:.78rem;font-weight:700;line-height:1.3;margin:0 0 4px;color:#e8f4f7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-desc{font-size:.7rem;color:#7aa8b2;line-height:1.4;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer{padding:8px 12px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid rgba(0,200,224,.1)}
+.card-price{font-size:.75rem;font-weight:800;color:#fff;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.btn-contact{font-size:.68rem!important;font-weight:800!important;padding:6px 11px!important;border-radius:999px!important;background:#00c8e0!important;color:#000!important;text-decoration:none!important;white-space:nowrap;border:none!important;flex-shrink:0}
+.btn-contact:hover{background:#fff!important;color:#000!important}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-label="Racha Extrema logo">
+      <path d="M4 20 C8 8, 16 4, 26 6 C22 10, 14 12, 10 20 Z" fill="currentColor" opacity="0.9"/>
+      <path d="M10 20 C12 14, 18 12, 26 14 L20 24 Z" fill="currentColor" opacity="0.55"/>
+      <ellipse cx="9" cy="22" rx="6" ry="2.5" fill="currentColor" opacity="0.3"/>
+    </svg>
+    <span class="nav-logo-text">RACHA <span>EXTREMA</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#publicar">Publicar</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="#publicar" class="btn-primary" id="nav-publish-btn">Publicar gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+      El mercado de wingfoil de Argentina
+    </div>
+    <h1>
+      WINGFOIL,<br>
+      <span class="sub-title">TU RACHA EXTREMA</span>
+    </h1>
+    <p class="hero-sub">Tablas, velas, foils y accesorios de las mejores marcas, de Meta y Mercado Libre y otros sitios.</p>
+    <div class="hero-ctas">
+      <a href="#productos" class="btn-hero">
+        Ver productos
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#publicar" class="btn-outline">Publicar aviso gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stat"><div class="stat-num">#RachaExtrema</div><div class="stat-label">Gratis para vos</div></div>
+  <div class="stat"><div class="stat-num">F-ONE &middot; KT &middot; NAISH</div><div class="stat-label">Marcas top</div></div>
+  <div class="stat"><div class="stat-num">BSAS &middot; CBA &middot; MDQ</div><div class="stat-label">Todo el pa&iacute;s</div></div>
+</div>
+
+<!-- SECTION HEADER + FILTERS -->
+<div id="productos" class="section-header reveal">
+  <div class="section-top">
+    <h2 class="section-title">EQUIPOS <span>DISPONIBLES</span></h2>
+  </div>
+  <p style="color:var(--text-muted);font-size:var(--text-sm);margin-top:-8px;">Publicaciones priorizadas desde Meta Marketplace y Mercado Libre, con enlaces externos al origen en nueva pestaña.</p>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <!-- Marca -->
+    <div class="filter-group">
+      <label for="filter-marca">Marca</label>
+      <select id="filter-marca" class="filter-select" onchange="applyFilters()">
+        <option value="">Todas</option>
+        <option value="NAISH">Naish</option>
+        <option value="KT">KT</option>
+        <option value="F-ONE">F-ONE</option>
+        <option value="DUOTONE">Duotone</option>
+        <option value="NORTH">North</option>
+        <option value="SHAKKA">Shakka</option>
+      </select>
+    </div>
+<div class="filter-divider"></div>
+    <!-- Fuente -->
+    <div class="filter-group">
+      <label for="filter-fuente">Fuente</label>
+      <select id="filter-fuente" class="filter-select" onchange="applyFilters()">
+        <option value="">Todas</option>
+        <option value="Mercado Libre">Mercado Libre</option>
+        <option value="Hard Wind">Hard Wind</option>
+        <option value="GPX Store">GPX Store</option>
+        <option value="Facebook">Facebook</option>
+      </select>
+    </div>
+    <div class="filter-divider"></div>
+    <!-- Precio mín -->
+    <div class="filter-group">
+      <label for="filter-min">Precio m&iacute;n (USD)</label>
+      <input type="number" id="filter-min" class="filter-input" placeholder="0" min="0" oninput="applyFilters()">
+    </div>
+    <div class="filter-divider"></div>
+    <!-- Precio máx -->
+    <div class="filter-group">
+      <label for="filter-max">Precio m&aacute;x (USD)</label>
+      <input type="number" id="filter-max" class="filter-input" placeholder="Sin l&iacute;mite" min="0" oninput="applyFilters()">
+    </div>
+    <div class="filter-divider"></div>
+    <!-- Categoría -->
+    <div class="filter-cats">
+      <button class="filter-btn active" data-cat="todos" onclick="setCat('todos',this)">Todos</button>
+      <button class="filter-btn" data-cat="tabla" onclick="setCat('tabla',this)">Tablas</button>
+      <button class="filter-btn" data-cat="ala" onclick="setCat('ala',this)">Alas</button>
+      <button class="filter-btn" data-cat="foil" onclick="setCat('foil',this)">Foils</button>
+      <button class="filter-btn" data-cat="combo" onclick="setCat('combo',this)">Combos</button>
+    </div>
+    <button class="btn-reset" onclick="resetFilters()">&#x2715; Limpiar</button>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="products-grid" id="grid">
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_644299-MLA98467166131_112025-T.webp" alt="Vela Wing Rrd Wind Wing Wingfoil Wingsurf Freeride Freestyle" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela Wing Rrd Wind Wing Wingfoil Wingsurf Freeride Freestyle</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1015987</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-1584125615-vela-wing-rrd-wind-wing-wingfoil-wingsurf-freeride-freestyle-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_938172-MLA82922701437_032025-T.webp" alt="Vela De Wing Wingfoil Aztron Air Wing 5.0 Kite Wake Surf Color Celeste" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela De Wing Wingfoil Aztron Air Wing 5.0 Kite Wake Surf Color Celeste</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1650206</div>
+      <a href="https://www.mercadolibre.com.ar/vela-de-wing-wingfoil-aztron-air-wing-50-kite-wake-surf-color-celeste/p/MLA46874476" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_646739-MLA107254533764_032026-T.webp" alt="Tabla De Wingfoil Tinos Workshop Palm Wing Carbon 140 Litros" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabla De Wingfoil Tinos Workshop Palm Wing Carbon 140 Litros</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1880000</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-1686877103-tabla-de-wingfoil-tinos-workshop-palm-wing-carbon-140-litros-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_887752-MLA99492779096_112025-T.webp" alt="Vela De Wing Wingfoil Aztron Air Wing 4.0 Kite Wake Surf Color Turquesa" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela De Wing Wingfoil Aztron Air Wing 4.0 Kite Wake Surf Color Turquesa</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1326326</div>
+      <a href="https://www.mercadolibre.com.ar/vela-de-wing-wingfoil-aztron-air-wing-40-kite-wake-surf-color-turquesa/p/MLA47031091" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_906427-MLA97554863813_112025-T.webp" alt="Aztron Air Wing - 4.0m Nueva  Wingfoil Liviano Y Potente" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Aztron Air Wing - 4.0m Nueva  Wingfoil Liviano Y Potente</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 690000</div>
+      <a href="https://www.mercadolibre.com.ar/aztron-air-wing--40m-nueva--wingfoil-liviano-y-potente/up/MLAU3541939605" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_646739-MLA107254533764_032026-T.webp" alt="Tabla De Wingfoil Tinos Workshop Palm Wing Carbon 130 Litros" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabla De Wingfoil Tinos Workshop Palm Wing Carbon 130 Litros</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1850000</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-2958155748-tabla-de-wingfoil-tinos-workshop-palm-wing-carbon-130-litros-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_671886-MLA97998145200_112025-T.webp" alt="Vela Rrd Wind Wing  Wingfoil Wingsurf Freeride Freestyle Str" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela Rrd Wind Wing  Wingfoil Wingsurf Freeride Freestyle Str</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1015987</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-2572823874-vela-rrd-wind-wing-wingfoil-wingsurf-freeride-freestyle-str-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_618384-MLA109694486741_032026-T.webp" alt="Tabla Foil Wingfoil Kitefoil Race Carbono Mosses Sabfoil It" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabla Foil Wingfoil Kitefoil Race Carbono Mosses Sabfoil It</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1900</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-3115739376-tabla-foil-wingfoil-kitefoil-race-carbono-mosses-sabfoil-it-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_710992-MLA82558048196_032025-T.webp" alt="Tabl Jp Australia 5.0 Wingfoil 100 Litros" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabl Jp Australia 5.0 Wingfoil 100 Litros</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1100</div>
+      <a href="https://www.mercadolibre.com.ar/tabl-jp-australia-50-wingfoil-100-litros/up/MLAU259283498" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_719104-MLA89477576509_082025-T.webp" alt="Vela De Wing Wingfoil Aztron Air Wing 6.0 Kite Wake Surf" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela De Wing Wingfoil Aztron Air Wing 6.0 Kite Wake Surf</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1622436</div>
+      <a href="https://www.mercadolibre.com.ar/vela-de-wing-wingfoil-aztron-air-wing-60-kite-wake-surf/up/MLAU2586265020" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_866824-MLA109176283993_032026-T.webp" alt="Tabla Foil Carbono Kitefoil Wingfoil Race Mosses Sabfoil It" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabla Foil Carbono Kitefoil Wingfoil Race Mosses Sabfoil It</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1900</div>
+      <a href="https://articulo.mercadolibre.com.ar/MLA-1714641769-tabla-foil-carbono-kitefoil-wingfoil-race-mosses-sabfoil-it-_JM" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_874164-MLA109502497578_042026-T.webp" alt="Tabla Wingfoil 65lt Carbono" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Tabla Wingfoil 65lt Carbono</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1400000</div>
+      <a href="https://www.mercadolibre.com.ar/tabla-wingfoil-65lt-carbono/up/MLAU3904136418" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_968368-MLA88881042078_082025-T.webp" alt="Vela De Wing Wingfoil Aztron Air Wing 5.0 Kite Wake Surf" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Vela De Wing Wingfoil Aztron Air Wing 5.0 Kite Wake Surf</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 712514</div>
+      <a href="https://www.mercadolibre.com.ar/vela-de-wing-wingfoil-aztron-air-wing-50-kite-wake-surf/up/MLAU3809356286" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Mercado Libre" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_994643-MLA80841358374_122024-T.webp" alt="Wing Wingfoil Jaws 5 6 Y 7 Metros" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Mercado Libre</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">MERCADO LIBRE</span>
+      <h3 class="card-name">Wing Wingfoil Jaws 5 6 Y 7 Metros</h3>
+      <p class="card-desc">Ver publicación original en Mercado Libre.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 450000</div>
+      <a href="https://www.mercadolibre.com.ar/wing-wingfoil-jaws-5-6-y-7-metros/up/MLAU2873027971" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/38559eac9cb6054ec8fa7e54fe63685531d066f8.jpg" alt="2024 Wing Tabla Cabrinha Swift" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">2024 Wing Tabla Cabrinha Swift</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">USD 2.796</div>
+      <a href="https://hardwind.com/us/productos/024-wing-tabla-cabrinha-swift/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="2025 Wing Tabla Starboard Wingboard Limited" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">2025 Wing Tabla Starboard Wingboard Limited</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">USD 2.028</div>
+      <a href="https://hardwind.com/us/productos/2025-wing-tabla-starboard-wingboard-limited-series/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/38559eac9cb6054ec8fa7e54fe63685531d066f8.jpg" alt="2025 Wing Tabla Cabrinha Code" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">2025 Wing Tabla Cabrinha Code</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">USD 1.890</div>
+      <a href="https://hardwind.com/productos/2025-wing-tabla-cabrinha-code/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="ala" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/151996192348e6aa9e82b8b18c47df1e4f8b655a.jpg" alt="Duotone Slick SLS Wing 5m" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Duotone Slick SLS Wing 5m</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://hardwind.com/wing/?Marca=Duotone" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Foil Completo Wingfoil" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Foil Completo Wingfoil</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Desde USD 800</div>
+      <a href="https://hardwind.com/foil/foil-completos/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="ala" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9c868d3ae0571dad5959243b6ed363dbe7f1433f.jpg" alt="Wings Wingfoil Usadas" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Wings Wingfoil Usadas</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Desde USD 400</div>
+      <a href="https://hardwind.com/usado/wings-usados/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="Tablas Wingfoil Nuevas" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Tablas Wingfoil Nuevas</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Desde USD 1.200</div>
+      <a href="https://hardwind.com/wing/tablas5/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="ala" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/38559eac9cb6054ec8fa7e54fe63685531d066f8.jpg" alt="Wings Cabrinha 2025" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Wings Cabrinha 2025</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://hardwind.com/wing/velas1/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Foil Wingfoil Completo Cabrinha" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Foil Wingfoil Completo Cabrinha</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://hardwind.com/foil/foil-completos/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="ala" data-brand="Hard Wind" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/151996192348e6aa9e82b8b18c47df1e4f8b655a.jpg" alt="Wing Duotone Unit 2025" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Hard Wind</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">HARD WIND</span>
+      <h3 class="card-name">Wing Duotone Unit 2025</h3>
+      <p class="card-desc">Ver publicación original en Hard Wind.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://hardwind.com/wing/?Marca=Duotone" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="F-ONE Rocket Wing S" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">F-ONE Rocket Wing S</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/1/tablas-de-wing" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="Tablas Wingfoil F-ONE" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Tablas Wingfoil F-ONE</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/1/tablas-de-wing" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/66fa1ee73a07213c742599ccc3189a629c03190a.jpg" alt="Equipos Wingfoil Completos" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Equipos Wingfoil Completos</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/categoria/2" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Downwind Foil y Pocket Wing" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Downwind Foil y Pocket Wing</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/categoria/7" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="ala" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/151996192348e6aa9e82b8b18c47df1e4f8b655a.jpg" alt="Velas Wingfoil F-ONE" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Velas Wingfoil F-ONE</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/2/velas-de-wing" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Hydrofoils Wingfoil" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Hydrofoils Wingfoil</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/3/hydrofoils" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="F-ONE Rocket Wing ASC" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">F-ONE Rocket Wing ASC</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/1/tablas-de-wing" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/66fa1ee73a07213c742599ccc3189a629c03190a.jpg" alt="Combos Wingfoil Completos" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Combos Wingfoil Completos</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/categoria/2" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Mastiles y Fuselajes Wingfoil" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Mastiles y Fuselajes Wingfoil</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://gpxstore.com/productos/2/3/hydrofoils" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="GPX Store" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9c868d3ae0571dad5959243b6ed363dbe7f1433f.jpg" alt="Outlet Wingfoil — GPX Store" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">GPX Store</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">GPX STORE</span>
+      <h3 class="card-name">Outlet Wingfoil — GPX Store</h3>
+      <p class="card-desc">Ver publicación original en GPX Store.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Desde USD 300</div>
+      <a href="https://gpxstore.com/outlet" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/66fa1ee73a07213c742599ccc3189a629c03190a.jpg" alt="F-ONE Kit Completo (Rocket Air + Foil)" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">F-ONE Kit Completo (Rocket Air + Foil)</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://www.facebook.com/groups/wingfoil.argentina/posts/1933187907305189/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/38559eac9cb6054ec8fa7e54fe63685531d066f8.jpg" alt="Tabla Wind Foil 120L con Funda" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Tabla Wind Foil 120L con Funda</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">USD 700</div>
+      <a href="https://www.facebook.com/groups/wingfoil.argentina/posts/1935112137112766/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="Tablas Mid Length 75L y 85L" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Tablas Mid Length 75L y 85L</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">ARS 1.680.000</div>
+      <a href="https://www.facebook.com/groups/wingfoil.argentina/posts/1937243430232970/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg" alt="Tablas WingFoil F-ONE para Arrancar" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Tablas WingFoil F-ONE para Arrancar</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://www.facebook.com/groups/wingfoil.argentina/posts/1857834101507237/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/66fa1ee73a07213c742599ccc3189a629c03190a.jpg" alt="Combo F-ONE Completo Customizable" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Combo F-ONE Completo Customizable</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://www.facebook.com/groups/203361443082627/posts/25507906255534797/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="foil" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b592fa817ef1ae697f9da518980438f70f086213.jpg" alt="Foil F-ONE Seven Seas Carbon V1" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Foil F-ONE Seven Seas Carbon V1</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://www.facebook.com/groups/wingfoil.argentina/posts/1781834145773900/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="combo" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/66fa1ee73a07213c742599ccc3189a629c03190a.jpg" alt="Wingfoil Packs con Tabla Rígida" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-new">Nuevo</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Wingfoil Packs con Tabla Rígida</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Desde USD 2.000</div>
+      <a href="https://www.facebook.com/groups/159910024068754/posts/30144453305187697/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div class="card reveal" data-cat="tabla" data-brand="Facebook" data-price="0">
+    <div class="card-img-wrap">
+      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9c868d3ae0571dad5959243b6ed363dbe7f1433f.jpg" alt="Tablas Wingfoil Usadas - Like New" loading="lazy" onerror="this.onerror=null;this.src='https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d499573f84a5cc67a7239aa5cdd65e56face90f.jpg'">
+      <span class="card-badge badge-used">Usado</span>
+      <span class="card-source">Facebook</span>
+    </div>
+    <div class="card-body">
+      <span class="card-brand">FACEBOOK</span>
+      <h3 class="card-name">Tablas Wingfoil Usadas - Like New</h3>
+      <p class="card-desc">Ver publicación original en Facebook.</p>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">Consultar</div>
+      <a href="https://www.facebook.com/groups/203361443082627/posts/25573913265600762/" target="_blank" rel="noopener noreferrer" class="btn-contact">Conocé más ↗</a>
+    </div>
+  </div>
+  <div id="no-results" class="no-results" style="display:none">No hay resultados para esos filtros 🏄</div>
+</div>
+<section class="form-section" id="publicar">
+  <div class="form-inner">
+    <div class="form-header reveal">
+      <h2>PUBLIC&Aacute; TU <em>EQUIPO</em></h2>
+      <p>Completá el formulario y llegá a toda la comunidad wingfoilera argentina. Es gratis.</p>
+    </div>
+
+    <form id="publish-form" novalidate>
+      <div class="form-grid">
+
+        <!-- 1. Título -->
+        <div class="field reveal">
+          <label for="f-titulo">T&iacute;tulo del producto <span class="req">*</span></label>
+          <input type="text" id="f-titulo" name="titulo" placeholder="Ej: Tabla F-ONE Rocket Wing V4 100L nueva" maxlength="80" required>
+          <span class="hint">M&aacute;ximo 80 caracteres</span>
+        </div>
+
+        <!-- 2. Descripción -->
+        <div class="field reveal">
+          <label for="f-desc">Descripci&oacute;n del producto <span class="req">*</span></label>
+          <textarea id="f-desc" name="descripcion" placeholder="Contá todo lo que necesita saber el comprador: estado, a&ntilde;o, tama&ntilde;o, accesorios incluidos, motivo de venta..." required></textarea>
+        </div>
+
+        <!-- 3. Precio -->
+        <div class="field reveal">
+          <label>Precio <span class="req">*</span></label>
+          <div class="price-row">
+            <div class="currency-toggle">
+              <input type="radio" name="moneda" id="cur-ars" value="ARS" checked>
+              <label for="cur-ars">$&nbsp;ARS</label>
+              <input type="radio" name="moneda" id="cur-usd" value="USD">
+              <label for="cur-usd">USD</label>
+            </div>
+            <input type="number" id="f-precio" name="precio" placeholder="Ej: 850000" min="0" step="1" required>
+          </div>
+          <span class="hint">Seleccioná la moneda y escribí el monto</span>
+        </div>
+
+        <!-- 4. Foto -->
+        <div class="field reveal">
+          <label>Foto del producto <span class="req">*</span></label>
+          <div class="upload-zone" id="upload-zone">
+            <input type="file" id="f-foto" name="fotos" accept="image/*" multiple>
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p><span class="upload-cta">Hacé clic para subir</span> o arrastrá las fotos ac&aacute;</p>
+            <small>JPG, PNG, WEBP &mdash; hasta 10MB por imagen</small>
+          </div>
+          <div class="preview-grid" id="preview-grid"></div>
+        </div>
+
+      </div>
+
+      <div class="form-submit reveal">
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Publicar aviso
+        </button>
+      </div>
+    </form>
+
+    <!-- Success state -->
+    <div class="form-success" id="form-success">
+      <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <h3>&iexcl;Aviso publicado!</h3>
+      <p>Tu equipo ya est&aacute; disponible para toda la comunidad wingfoilera. &iexcl;Buena racha!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&#127940; <strong>Racha Extrema</strong> &mdash; una idea de La Vicuña Digital Agency</p>
+  <p><a href="#politica-cookies" onclick="openCookies(event)">Política de Cookies</a></p>
+<div style="text-align:center;margin-top:18px">
+  <a href="mailto:rachaextrema@gmail.com?subject=Opinión sobre el sitio web&body=Hola, quiero dejar mi opinión:" 
+     style="color:#00c8e0;font-weight:700;font-size:0.95rem;text-decoration:underline;letter-spacing:0.03em;">
+     💬 Quiero dejar mi opinión para mejorar el sitio web
+  </a>
+</div>
+</footer>
+<section class="form-section" id="politica-cookies" style="display:none;">
+  <div class="form-inner">
+    <div class="form-header reveal visible">
+      <h2>POLÍTICA DE <em>COOKIES</em></h2>
+      <p>En Racha Extrema usamos cookies para mejorar la navegación, recordar preferencias, medir tráfico y optimizar la experiencia del usuario. Algunas cookies son técnicas y necesarias para el funcionamiento correcto del sitio.</p>
+      <p>También podemos usar cookies analíticas y de terceros para entender cómo se usa la plataforma y mejorar sus contenidos, filtros, formularios y navegación. Podés configurar tu navegador para bloquearlas o eliminarlas cuando quieras.</p>
+      <p><a href="#" class="btn-outline" onclick="closeCookies(event)">Volver</a></p>
+    </div>
+  </div>
+</section>
+
+<script>
+// ── THEME TOGGLE
+(function(){
+  var t=document.querySelector('[data-theme-toggle]');
+  var r=document.documentElement;
+  var d=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  r.setAttribute('data-theme',d);
+  function setIcon(){if(!t)return;t.innerHTML=d==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}
+  setIcon();
+  t&&t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);setIcon();});
+})();
+
+// ── SMOOTH SCROLL al formulario desde "Publicar gratis"
+document.getElementById('nav-publish-btn').addEventListener('click',function(e){
+  e.preventDefault();
+  document.getElementById('publicar').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+// ── FILTERS
+var activeCat='todos';
+
+function setCat(cat,btn){
+  activeCat=cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters(){
+  var brand=document.getElementById('filter-marca').value;
+  var fuente=document.getElementById('filter-fuente')?document.getElementById('filter-fuente').value:'';
+  var minVal=parseFloat(document.getElementById('filter-min').value)||0;
+  var maxVal=parseFloat(document.getElementById('filter-max').value)||Infinity;
+  var cards=document.querySelectorAll('#grid .card');
+  var visible=0;
+  cards.forEach(function(card){
+    var catOk=activeCat==='todos'||card.dataset.cat===activeCat;
+    var brandOk=!brand||card.dataset.brand===brand;
+    var fuenteOk=!fuente||card.dataset.brand===fuente;
+    var price=parseFloat(card.dataset.price)||0;
+    var priceOk=price>=minVal&&price<=maxVal;
+    var show=catOk&&brandOk&&fuenteOk&&priceOk;
+    card.style.display=show?'':'none';
+    if(show)visible++;
+  });
+  document.getElementById('no-results').style.display=visible===0?'flex':'none';
+}
+
+function resetFilters(){
+  document.getElementById('filter-marca').value='';
+  var f=document.getElementById('filter-fuente');if(f)f.value='';
+  document.getElementById('filter-min').value='';
+  document.getElementById('filter-max').value='';
+  activeCat='todos';
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  document.querySelector('.filter-btn[data-cat="todos"]').classList.add('active');
+  applyFilters();
+}
+
+// ── FILE PREVIEW
+var fileList=[];
+document.getElementById('f-foto').addEventListener('change',function(e){
+  handleFiles(e.target.files);
+});
+var zone=document.getElementById('upload-zone');
+zone.addEventListener('dragover',function(e){e.preventDefault();zone.classList.add('dragover');});
+zone.addEventListener('dragleave',function(){zone.classList.remove('dragover');});
+zone.addEventListener('drop',function(e){
+  e.preventDefault();zone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+
+function handleFiles(files){
+  Array.from(files).forEach(function(file){
+    if(!file.type.startsWith('image/'))return;
+    fileList.push(file);
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var grid=document.getElementById('preview-grid');
+      var thumb=document.createElement('div');
+      thumb.className='preview-thumb';
+      var idx=fileList.length-1;
+      thumb.innerHTML='<img src="'+ev.target.result+'" alt="preview"><button class="remove-thumb" onclick="removeThumb('+idx+',this.parentNode)" aria-label="Quitar foto">&times;</button>';
+      grid.appendChild(thumb);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function removeThumb(idx,el){fileList[idx]=null;el.remove();}
+
+// ── FORM SUBMIT
+document.getElementById('publish-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var titulo=document.getElementById('f-titulo').value.trim();
+  var desc=document.getElementById('f-desc').value.trim();
+  var precio=document.getElementById('f-precio').value.trim();
+  var fotos=fileList.filter(function(f){return f!==null;});
+  if(!titulo||!desc||!precio||fotos.length===0){
+    var first=!titulo?'f-titulo':(!desc?'f-desc':(!precio?'f-precio':'upload-zone'));
+    document.getElementById(first).focus();
+    document.getElementById(first).style.borderColor='var(--accent-2)';
+    setTimeout(function(){document.getElementById(first).style.borderColor='';},2000);
+    return;
+  }
+  var btn=document.getElementById('submit-btn');
+  btn.disabled=true;
+  btn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Publicando...';
+  setTimeout(function(){
+    document.getElementById('publish-form').style.display='none';
+    document.getElementById('form-success').style.display='block';
+  },1400);
+});
+
+// ── SCROLL REVEAL
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+function openCookies(e){e.preventDefault();document.getElementById('politica-cookies').style.display='block';document.getElementById('politica-cookies').scrollIntoView({behavior:'smooth'});}
+function closeCookies(e){e.preventDefault();document.getElementById('politica-cookies').style.display='none';}
+</script>
+</body>
+</html>
